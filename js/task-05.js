@@ -7,5 +7,5 @@ greet.textContent = anonymous;
 nameInput.addEventListener("input", onInput);
 
 function onInput(event) {
-  greet.textContent = event.target.value || anonymous;
+  greet.textContent = event.target.value.trim() || anonymous;
 }

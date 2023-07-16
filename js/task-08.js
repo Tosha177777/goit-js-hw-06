@@ -1,17 +1,21 @@
 const form = document.querySelector(".login-form");
-const inputs = form.querySelectorAll("input");
 form.addEventListener("submit", formSubmit);
 
 function formSubmit(e) {
   e.preventDefault();
-  let element = e.currentTarget;
-  if (form.email.value.trim() === "" || form.password.value.trim() === "") {
+  let elements = e.currentTarget;
+  if (
+    elements.email.value.trim() === "" ||
+    elements.password.value.trim() === ""
+  ) {
     window.alert("Заповніть всі поля");
   } else {
-    const formData = new FormData(element);
-    formData.forEach((value, name) => {
-      console.log(`${name}: ${value}`);
-    });
+    const formData = new FormData(elements);
+    const data = {};
+    for (let [name, value] of formData) {
+      data[name] = value;
+    }
+    console.log(data);
   }
 
   form.reset();

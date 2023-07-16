@@ -16,6 +16,7 @@ obj.create.addEventListener("click", createBoxes);
 obj.destroy.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
+  boxes.innerHTML = "";
   amount = Number(obj.input.value);
   const fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i++) {
